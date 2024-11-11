@@ -1,5 +1,5 @@
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   variant?: "primary" | "secondary" | "outline";
   size?: "sm" | "md" | "lg";
   fullWidth?: boolean;
@@ -28,9 +28,17 @@ const Button: React.FC<ButtonProps> = ({
   };
 
   const sizeStyles = {
-    sm: icon ? "pl-3 pr-2 py-1.5 text-sm" : "px-3 py-1.5 text-sm",
-    md: icon ? "pl-4 pr-3 py-2" : "px-4 py-2",
-    lg: icon ? "pl-6 pr-4 py-3 text-lg" : "px-6 py-3 text-lg",
+    sm: !children
+      ? "px-3 py-1.5 text-sm"
+      : icon
+      ? "pl-3 pr-2 py-1.5 text-sm"
+      : "px-3 py-1.5 text-sm",
+    md: !children ? "px-4 py-2" : icon ? "pl-4 pr-3 py-2" : "px-4 py-2",
+    lg: !children
+      ? "px-6 py-3 text-lg"
+      : icon
+      ? "pl-6 pr-4 py-3 text-lg"
+      : "px-6 py-3 text-lg",
   };
 
   return (
