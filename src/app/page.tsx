@@ -1,3 +1,6 @@
+"use client";
+
+// components
 import Button from "@/components/shared/Button";
 import Input from "@/components/shared/Input";
 import Card from "@/components/shared/Card";
@@ -6,8 +9,8 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center h-screen">
-      <Card className="gap-6 items-center" maxWidth="xl">
-        <h1 className="text-white text-4xl font-semibold">
+      <Card className="gap-6 items-center w-full">
+        <h1 className="text-white text-2xl font-semibold">
           Welcome to Jubinote!
         </h1>
         <p className="text-gray-400 text-center">

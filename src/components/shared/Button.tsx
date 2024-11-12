@@ -1,6 +1,6 @@
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children?: React.ReactNode;
-  variant?: "primary" | "secondary" | "outline";
+  variant?: "primary" | "secondary" | "outline" | "outline_error";
   size?: "sm" | "md" | "lg";
   fullWidth?: boolean;
   className?: string;
@@ -25,6 +25,8 @@ const Button: React.FC<ButtonProps> = ({
     secondary: "bg-gray-200 text-gray-900 hover:bg-gray-300",
     outline:
       "bg-transparent border border-purple-500 text-purple-500 hover:bg-purple-700 hover:text-white",
+    outline_error:
+      "bg-transparent border-2 text-red-500 hover:text-red-500/80 active:text-red-500/100 shadow-lg shadow-red-500/10",
   };
 
   const sizeStyles = {
