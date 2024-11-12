@@ -1,20 +1,25 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useContext } from "react";
+
+// components
 import Card from "./shared/Card";
 import Button from "./shared/Button";
+import Modal from "./shared/Modal";
+import Input from "./shared/Input";
+import TextArea from "./shared/TextArea";
+
+// context
+import { ModalContext } from "@/app/layout";
 
 const DashboardPage: React.FunctionComponent = () => {
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const { isOpen, openModal, closeModal } = useContext(ModalContext);
+
   return (
     <Card maxWidth="full">
       <div className="flex flex-row items-center justify-between">
         <h1 className="text-4xl font-bold">Your Tasks.</h1>
-        <Button
-          variant="primary"
-          icon={<PlusIcon />}
-          onClick={() => setIsModalOpen(true)}
-        >
+        <Button variant="primary" icon={<PlusIcon />} onClick={openModal}>
           Add Item
         </Button>
       </div>
@@ -25,6 +30,17 @@ const DashboardPage: React.FunctionComponent = () => {
           track your progress.
         </p>
       </div>
+      <Modal
+        isOpen={isOpen}
+        onClose={closeModal}
+        title="Add New Task"
+        actionButton={<Button variant="outline">Add</Button>}
+      >
+        <div className="flex flex-col gap-2">
+          <Input label="Title" fullWidth />
+          <TextArea label="Description" fullWidth style={{ minHeight: 100 }} />
+        </div>
+      </Modal>
     </Card>
   );
 };
