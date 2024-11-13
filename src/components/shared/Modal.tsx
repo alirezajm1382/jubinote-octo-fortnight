@@ -38,7 +38,10 @@ const Modal: React.FC<ModalProps> = ({
         </h2>
       )}
       <div>{children}</div>
-      <div className="flex flex-row w-100 justify-end align-middle gap-2">
+      <div
+        className="flex flex-row w-100 
+      justify-end align-middle gap-2"
+      >
         <Button variant="outline_error" onClick={onClose}>
           Close
         </Button>

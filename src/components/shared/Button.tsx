@@ -26,7 +26,7 @@ const Button: React.FC<ButtonProps> = ({
     outline:
       "bg-transparent border border-purple-500 text-purple-500 hover:bg-purple-700 hover:text-white",
     outline_error:
-      "bg-transparent border-2 text-red-500 hover:text-red-500/80 active:text-red-500/100 shadow-lg shadow-red-500/10",
+      "bg-transparent border border-red-500 text-red-500 hover:text-white hover:bg-red-500",
   };
 
   const sizeStyles = {
